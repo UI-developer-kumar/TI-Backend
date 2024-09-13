@@ -20,7 +20,7 @@ server.use((req, res, next) => {
             if(user=users.find(user=>(user.username==req.body.username&&user.password==req.body.password))){
                 var token = jwt.sign(user, 'edosecretkey');
                 res.header('token',token)
-                res.json({msg:"loginsuccess",token,role:user.role,mobile:user.mobile,username:user.username,id:user.id, profileImg:user.profileImg})
+                res.json({msg:"loginsuccess",token,role:user.role,mobile:user.mobile,id:user.id,username:user.username,profileImg:user.profileImg})
             }
             else{
                 res.json({msg:"credentials mismatch"})
